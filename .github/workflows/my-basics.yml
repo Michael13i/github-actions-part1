@@ -1,6 +1,12 @@
 # GitHub Action Workflow Basics
 name: My-GithubActions-Basics
 
+env:
+  APPLICATION_NAME      : "MyFlask"
+  DEPLOY_PACKAGE_NAME   : "flask-deploy-ver-${{ github.sha }}"
+
+
+
 on:
   push:
     branches:
@@ -11,14 +17,22 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Print Hello Message
+    - name: Print Hello Message in Testing
       run: echo "Hello world"
+
+    - name: Execute few  commands
+      run: 
+        echo "Hello Message1"
+        echo "Hello Message2"
+        echo "Application name is ${{ APPLICATION_NAME }}"
 
   my_deploy:
     runs-on: ubuntu-latest
     needs: [my_test]
     steps:
-    - name: Print Hello Message
-      run: echo "Hello world from deploy job"
+    - name: Print Hello Message in Deploy
+       run: echo "Hello world from deploy job"
+    -name : Printing Deployment package
+       run: echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
 
       
