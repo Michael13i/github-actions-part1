@@ -40,7 +40,7 @@ jobs:
       VAR1 : "This is Job level variable 1"
       VAR2 : "This is Job level variable 2"
     
-  steps:
+    steps:
     - name: Print Hello Message in Deploy
       run: echo "Hello World from Deploy job"
       
