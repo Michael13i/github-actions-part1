@@ -1,0 +1,23 @@
+# GitHub Action Workflow Basics
+name: My-GithubActions-Basics
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  my_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Print Hello Message
+      run: echo "Hello world"
+
+  my_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Hello Message
+      run: echo "Hello world from deploy job"
+
+      
